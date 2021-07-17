@@ -34,6 +34,10 @@
 #include "ssl/ISslService.h"
 #include "prepo/IPrepoService.h"
 #include "mmnv/IRequest.h"
+<<<<<<< Updated upstream
+=======
+#include "spl/IRandomInterface.h"
+>>>>>>> Stashed changes
 #include "serviceman.h"
 
 #define SERVICE_CASE(class, name, ...) \
@@ -96,6 +100,10 @@ namespace skyline::service {
             SERVICE_CASE(ssl::ISslService, "ssl")
             SERVICE_CASE(prepo::IPrepoService, "prepo:u")
             SERVICE_CASE(mmnv::IRequest, "mm:u")
+<<<<<<< Updated upstream
+=======
+            SERVICE_CASE(spl::IRandomInterface, "csrng")
+>>>>>>> Stashed changes
             default:
                 std::string_view nameString(span(reinterpret_cast<char *>(&name), sizeof(name)).as_string(true));
                 throw std::out_of_range(fmt::format("CreateService called with an unknown service name: {}", nameString));

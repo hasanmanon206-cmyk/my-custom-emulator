@@ -215,6 +215,11 @@ add_library(skyline SHARED
         ${source_DIR}/skyline/services/ssl/ISslContext.cpp
         ${source_DIR}/skyline/services/prepo/IPrepoService.cpp
         ${source_DIR}/skyline/services/mmnv/IRequest.cpp
+<<<<<<< Updated upstream
+=======
+        ${source_DIR}/skyline/services/spl/IRandomInterface.cpp
+        ${source_DIR}/skyline/services/spl/IGeneralInterface.cpp
+>>>>>>> Stashed changes
         )
 # target_precompile_headers(skyline PRIVATE ${source_DIR}/skyline/common.h) # PCH will currently break Intellisense
 target_link_libraries(skyline android perfetto fmt lz4_static tzcode oboe vkma mbedcrypto)
