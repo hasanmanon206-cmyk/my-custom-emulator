@@ -10,7 +10,7 @@
     </a>
 </h1>
 <p align="center">
-    <b>Skyline</b> is an experimental emulator that runs on <b>ARMv8 Android™</b> devices and emulates the functionality of a <b>Nintendo Switch™</b> system, licensed under <a href="https://github.com/skyline-emu/skyline/blob/master/LICENSE.md"><b>Mozilla Public License 2.0</b></a>
+    <b>Skyline</b> is an experimental emulator that runs on <b>ARMv8 Android™</b> devices and emulates a <b>Nintendo Switch™</b> system, licensed under <a href="https://github.com/skyline-emu/skyline/blob/master/LICENSE.md"><b>Mozilla Public License 2.0</b></a>
 </p>
 
 ---
