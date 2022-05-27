@@ -15,13 +15,14 @@ namespace skyline::input {
         }
     }
 
-    void TouchManager::SetState(const span<TouchScreenPoint> &points) {
+    void TouchManager::SetState(const span<TouchScreenPoint> touchPoints) {
         if (!activated)
             return;
 
         const auto &lastEntry{section.entries[section.header.currentEntry]};
         auto entryIndex{(section.header.currentEntry != constant::HidEntryCount - 1) ? section.header.currentEntry + 1 : 0};
         auto &entry{section.entries[entryIndex]};
+        auto points{touchPoints.subspan(0, std::min(touchPoints.size(), entry.data.size()))};
         entry.globalTimestamp = lastEntry.globalTimestamp + 1;
         entry.localTimestamp = lastEntry.localTimestamp + 1;
         entry.touchCount = points.size();
@@ -29,13 +30,18 @@ namespace skyline::input {
         for (size_t i{}; i < points.size(); i++) {
             const auto &host{points[i]};
             auto &guest{entry.data[i]};
-            guest.index = static_cast<u32>(i);
+            guest.attribute.raw = static_cast<u32>(host.attribute);
+            guest.index = static_cast<u32>(host.id);
             guest.positionX = static_cast<u32>(host.x);
             guest.positionY = static_cast<u32>(host.y);
             guest.minorAxis = static_cast<u32>(host.minor);
             guest.majorAxis = static_cast<u32>(host.major);
             guest.angle = host.angle;
         }
+
+        // Clear unused touch points
+        for (size_t i{points.size()}; i < entry.data.size(); i++)
+            entry.data[i] = {};
 
         section.header.timestamp = util::GetTimeTicks();
         section.header.entryCount = std::min(static_cast<u8>(section.header.entryCount + 1), constant::HidEntryCount);
