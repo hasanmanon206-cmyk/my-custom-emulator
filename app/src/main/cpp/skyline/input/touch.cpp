@@ -15,14 +15,14 @@ namespace skyline::input {
         }
     }
 
-    void TouchManager::SetState(const span<TouchScreenPoint> touchPoints) {
+    void TouchManager::SetState(span<TouchScreenPoint> touchPoints) {
         if (!activated)
             return;
 
         const auto &lastEntry{section.entries[section.header.currentEntry]};
         auto entryIndex{(section.header.currentEntry != constant::HidEntryCount - 1) ? section.header.currentEntry + 1 : 0};
         auto &entry{section.entries[entryIndex]};
-        auto points{touchPoints.subspan(0, std::min(touchPoints.size(), entry.data.size()))};
+        touchPoints = touchPoints.first(std::min(touchPoints.size(), entry.data.size()));
         entry.globalTimestamp = lastEntry.globalTimestamp + 1;
         entry.localTimestamp = lastEntry.localTimestamp + 1;
         entry.touchCount = points.size();
