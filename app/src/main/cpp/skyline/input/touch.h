@@ -39,6 +39,6 @@ namespace skyline::input {
 
         void Activate();
 
-        void SetState(const span<TouchScreenPoint> touchPoints);
+        void SetState(span<TouchScreenPoint> touchPoints);
     };
 }
