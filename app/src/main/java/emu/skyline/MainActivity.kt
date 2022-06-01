@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
             binding.logIcon.setOnClickListener {
                 val file = applicationContext.getPublicFilesDir().resolve("logs/emulation.sklog")
                 if (file.exists() && file.length() != 0L) {
-                    val uri = FileProvider.getUriForFile(this@MainActivity, "skyline.emu.fileprovider", file)
+                    val uri = FileProvider.getUriForFile(this@MainActivity, "emu.skyline.fileprovider", file)
                     val intent = Intent(Intent.ACTION_SEND)
                         .setDataAndType(uri, "text/plain")
                         .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
