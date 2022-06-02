@@ -19,10 +19,11 @@ namespace skyline {
             Invalid = 0, //!< An invalid PCM format
             Int8 = 1,    //!< 8 bit integer PCM
             Int16 = 2,   //!< 16 bit integer PCM
-            Int24 = 3,   //!< 24 bit integer PCM
-            Int32 = 4,   //!< 32 bit integer PCM
-            Float = 5,   //!< Floating point PCM
-            ADPCM = 6,   //!< Adaptive differential PCM
+            Int24 = 3,   //!< 16 bit integer PCM
+            Int26 = 4,   //!< 24 bit integer PCM
+            Int32 = 5,   //!< 32 bit integer PCM
+            Float = 6,   //!< Floating point PCM
+            ADPCM = 7,   //!< Adaptive differential PCM
         };
 
         enum class AudioOutState : u8 {
