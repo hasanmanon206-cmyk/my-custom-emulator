@@ -7,7 +7,6 @@ package emu.skyline.adapter.controller
 
 import emu.skyline.R
 import emu.skyline.adapter.GenericListItem
-import emu.skyline.adapter.GenericViewHolder
 import emu.skyline.databinding.ControllerItemBinding
 import emu.skyline.di.getInputManager
 import emu.skyline.input.AxisGuestEvent
@@ -17,7 +16,7 @@ import emu.skyline.input.StickId
 /**
  * This item is used to display all information regarding a [stick] and it's mappings for the controller
  */
-class ControllerStickViewItem(private val controllerId : Int, val stick : StickId, private val onClick : (item : ControllerStickViewItem, position : Int) -> Unit) : ControllerViewItem(stick.toString()) {
+class ControllerStickViewItem(private val controllerId : Int, val stick : StickId, private val onClick : (item : ControllerStickViewItem, position : Int) -> Unit, val controllerStickName : String = stick.toString()) : ControllerViewItem(controllerStickName) {
     override fun bind(binding : ControllerItemBinding, position : Int) {
         val context = binding.root.context
         val inputManager = context.getInputManager()

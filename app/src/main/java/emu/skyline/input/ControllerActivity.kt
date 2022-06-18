@@ -117,7 +117,7 @@ class ControllerActivity : AppCompatActivity() {
                 items.add(ControllerHeaderItem(getString(R.string.sticks)))
 
             for (stick in controller.type.sticks) {
-                val stickItem = ControllerStickViewItem(id, stick, onControllerStickClick)
+                val stickItem = ControllerStickViewItem(id, stick, onControllerStickClick, stick.button.long?.let { getString(it) } ?: stick.toString())
 
                 items.add(stickItem)
                 stickItems.add(stickItem)
