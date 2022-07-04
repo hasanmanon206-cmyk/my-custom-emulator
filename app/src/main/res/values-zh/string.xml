@@ -19,8 +19,8 @@
     <string name="play">开始游戏</string>
     <string name="searching_roms">搜索ROM</string>
     <string name="invalid_file">无效文件</string>
-    <string name="missing_title_key">缺少title key</string>
-    <string name="incomplete_prod_keys">production keys不完整</string>
+    <string name="missing_title_key">缺少title密钥</string>
+    <string name="incomplete_prod_keys">缺少production密钥</string>
     <!-- Settings - Emulator -->
     <string name="emulator">模拟器</string>
     <string name="search_location">搜索位置</string>
