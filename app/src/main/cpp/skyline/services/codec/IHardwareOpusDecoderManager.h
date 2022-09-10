@@ -20,6 +20,17 @@ namespace skyline::service::codec {
     static_assert(sizeof(MultiStreamParameters) == 0x110);
 
     /**
+     * @brief Initialization parameters for OpenHardwareOpusDecoderEx and GetWorkBufferSizeEx
+     */
+    struct OpusParametersEx {
+        i32 sampleRate;
+        i32 channelCount;
+        i32 useLargerFrameSize;
+        i32 padding;
+    };
+    static_assert(sizeof(OpusParametersEx) == 0x10);
+
+    /**
      * @brief Manages all instances of IHardwareOpusDecoder
      * @url https://switchbrew.org/wiki/Audio_services#hwopus
      */
@@ -39,9 +50,23 @@ namespace skyline::service::codec {
          */
         Result GetWorkBufferSize(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response);
 
+        /**
+         * @brief Returns an IHardwareOpusDecoder object [12.0.0+]
+         * @url https://switchbrew.org/wiki/Audio_services#OpenHardwareOpusDecoder
+         */
+        Result OpenHardwareOpusDecoderEx(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response);
+
+        /**
+         * @brief Returns the required size for the decoder's work buffer [12.0.0+]
+         * @url https://switchbrew.org/wiki/Audio_services#GetWorkBufferSizeEx
+         */
+        Result GetWorkBufferSizeEx(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response);
+
         SERVICE_DECL(
             SFUNC(0x0, IHardwareOpusDecoderManager, OpenHardwareOpusDecoder),
             SFUNC(0x1, IHardwareOpusDecoderManager, GetWorkBufferSize),
+            SFUNC(0x4, IHardwareOpusDecoderManager, OpenHardwareOpusDecoderEx),
+            SFUNC(0x5, IHardwareOpusDecoderManager, GetWorkBufferSizeEx),
         )
     };
 }

@@ -7,9 +7,9 @@
 #include "IHardwareOpusDecoder.h"
 
 namespace skyline::service::codec {
-    static u32 CalculateBufferSize(i32 sampleRate, i32 channelCount) {
+    static u32 CalculateBufferSize(i32 sampleRate, i32 channelCount, i32 useLargerFrameSize = 0) {
         u32 requiredSize{static_cast<u32>(opus_decoder_get_size(channelCount))};
-        requiredSize += MaxInputBufferSize + CalculateOutBufferSize(sampleRate, channelCount, MaxFrameSizeNormal);
+        requiredSize += MaxInputBufferSize + CalculateOutBufferSize(sampleRate, channelCount, useLargerFrameSize ? MaxFrameSizeEx : MaxFrameSizeNormal);
         return requiredSize;
     }
 
@@ -30,6 +30,24 @@ namespace skyline::service::codec {
         i32 channelCount{request.Pop<i32>()};
 
         response.Push<u32>(CalculateBufferSize(sampleRate, channelCount));
+        return {};
+    }
+
+    Result IHardwareOpusDecoderManager::OpenHardwareOpusDecoderEx(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response) {
+        OpusParametersEx parameters{request.Pop<OpusParametersEx>()};
+        u32 workBufferSize{request.Pop<u32>()};
+        KHandle workBuffer{request.copyHandles.at(0)};
+
+        Logger::Debug("Creating Opus decoder: Sample rate: {}, Channel count: {}, Work buffer handle: 0x{:X} (Size: 0x{:X})", parameters.sampleRate, parameters.channelCount, workBuffer, workBufferSize);
+
+        manager.RegisterService(std::make_shared<IHardwareOpusDecoder>(state, manager, parameters.sampleRate, parameters.channelCount, workBufferSize, workBuffer, parameters.useLargerFrameSize), session, response);
+        return {};
+    }
+
+    Result IHardwareOpusDecoderManager::GetWorkBufferSizeEx(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response) {
+        OpusParametersEx parameters{request.Pop<OpusParametersEx>()};
+
+        response.Push<u32>(CalculateBufferSize(parameters.sampleRate, parameters.channelCount, parameters.useLargerFrameSize));
         return {};
     }
 }
