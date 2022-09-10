@@ -34,20 +34,26 @@ namespace skyline::service::codec {
     }
 
     Result IHardwareOpusDecoderManager::OpenHardwareOpusDecoderEx(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response) {
-        OpusParametersEx parameters{request.Pop<OpusParametersEx>()};
+        i32 sampleRate{request.Pop<i32>()};
+        i32 channelCount{request.Pop<i32>()};
+        i32 useLargerFrameSize{request.Pop<i32>()};
+        request.Pop<i32>(); // Just padding
         u32 workBufferSize{request.Pop<u32>()};
         KHandle workBuffer{request.copyHandles.at(0)};
 
-        Logger::Debug("Creating Opus decoder: Sample rate: {}, Channel count: {}, Work buffer handle: 0x{:X} (Size: 0x{:X})", parameters.sampleRate, parameters.channelCount, workBuffer, workBufferSize);
+        Logger::Debug("Creating Opus decoder: Sample rate: {}, Channel count: {}, Work buffer handle: 0x{:X} (Size: 0x{:X})", sampleRate, channelCount, workBuffer, workBufferSize);
 
-        manager.RegisterService(std::make_shared<IHardwareOpusDecoder>(state, manager, parameters.sampleRate, parameters.channelCount, workBufferSize, workBuffer, parameters.useLargerFrameSize), session, response);
+        manager.RegisterService(std::make_shared<IHardwareOpusDecoder>(state, manager, sampleRate, channelCount, workBufferSize, workBuffer, useLargerFrameSize), session, response);
         return {};
     }
 
     Result IHardwareOpusDecoderManager::GetWorkBufferSizeEx(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response) {
-        OpusParametersEx parameters{request.Pop<OpusParametersEx>()};
+        i32 sampleRate{request.Pop<i32>()};
+        i32 channelCount{request.Pop<i32>()};
+        i32 useLargerFrameSize{request.Pop<i32>()};
+        request.Pop<i32>(); // Just padding
 
-        response.Push<u32>(CalculateBufferSize(parameters.sampleRate, parameters.channelCount, parameters.useLargerFrameSize));
+        response.Push<u32>(CalculateBufferSize(sampleRate, channelCount, useLargerFrameSize));
         return {};
     }
 }

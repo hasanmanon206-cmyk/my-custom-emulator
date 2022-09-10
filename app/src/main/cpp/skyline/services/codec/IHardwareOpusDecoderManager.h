@@ -20,17 +20,6 @@ namespace skyline::service::codec {
     static_assert(sizeof(MultiStreamParameters) == 0x110);
 
     /**
-     * @brief Initialization parameters for OpenHardwareOpusDecoderEx and GetWorkBufferSizeEx
-     */
-    struct OpusParametersEx {
-        i32 sampleRate;
-        i32 channelCount;
-        i32 useLargerFrameSize;
-        i32 padding;
-    };
-    static_assert(sizeof(OpusParametersEx) == 0x10);
-
-    /**
      * @brief Manages all instances of IHardwareOpusDecoder
      * @url https://switchbrew.org/wiki/Audio_services#hwopus
      */
