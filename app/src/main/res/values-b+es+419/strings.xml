@@ -118,7 +118,7 @@
     <string name="enable_fast_gpu_readback_disabled">La relectura rápida de GPU está deshabilitada (asegura mayor precisión)</string>
     <string name="enable_fast_readback_writes">Activar relectura rápida de escrituras</string>
     <string name="enable_fast_readback_writes_enabled">Relectura rápida de escrituras está activado</string>
-    <string name="enable_fast_readback_writes_disabled">Relectura rápida de escrituras esta desactivado</string>
+    <string name="enable_fast_readback_writes_disabled">Relectura rápida de escrituras está desactivado</string>
     <string name="disable_subgroup_shuffle">Desactivar operaciones de subgrupos de GPU</string>
     <string name="disable_subgroup_shuffle_enabled">Las operaciones de subgrupos de shaders están desactivadas. Puede causar serios problemas gráficos</string>
     <string name="disable_subgroup_shuffle_disabled">Las operaciones de subgrupos de shaders están activadas. Máxima precisión garantizada</string>
