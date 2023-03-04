@@ -53,7 +53,7 @@
     <!-- Settings - Game -->
     <string name="game">Jogo</string>
     <string name="use_custom_settings">Ativar Configurações Personalizadas</string>
-    <string name="use_custom_settings_desc_on">Configurações personalizadas estão ativas para este jogo</string>
+    <string name="use_custom_settings_desc_on">Configurações personalizadas estão habilitadas para este jogo</string>
     <string name="use_custom_settings_desc_off">Configurações personalizadas estão desabilitadas para esse jogo</string>
     <string name="reset_custom_settings">Redefinir Configurações Personalizadas</string>
     <string name="reset_custom_settings_desc">Redefine as configurações personalizadas para os valores padrão</string>
