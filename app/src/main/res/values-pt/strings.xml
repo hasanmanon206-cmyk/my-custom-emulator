@@ -237,7 +237,7 @@
     <string name="jssim_description">A similaridade de strings em Java potencializa nossa funcionalidade de pesquisas</string>
     <string name="andx_description">AndroidX fornece uma experiência de usuário consistente em todas as versões do Android</string>
     <string name="amat_description">Android Material Components fornece uma interface de usuário do Material Desing consistente</string>
-    <string name="ktstd_description">Kotlin Standar Library proporciona funções de conveniência em Kotlin</string>
+    <string name="ktstd_description">Kotlin Standar Library fornece funções de conveniência em Kotlin</string>
     <string name="dagger_description">Dagger proporciona uma estrutura para injenção de dependência em tempo de compilação</string>
     <string name="mtico_description">Material Design Icons fornece uma iconografia consistente em todo o aplicativo</string>
     <string name="noto_sans_description">Nato Sans é utilizado como nossa substituição de fonte compartilhada FOSS para Latin, Japonês and Chinês (Tradicional)</string>
