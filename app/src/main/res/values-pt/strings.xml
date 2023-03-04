@@ -152,7 +152,7 @@
     <string name="osc_feedback_description">Exclui os joysticks e controles físicos</string>
     <string name="osc_edit">Editar Esquema de Controles na Tela</string>
     <string name="setup_guide">Guia de Configuração</string>
-    <string name="setup_guide_description">Mapear em sequência todos os gatilhos e botões</string>
+    <string name="setup_guide_description">Mapeia em sequência todos os analógicos e botões</string>
     <string name="joystick">Joystick</string>
     <string name="confirm">Confirmar</string>
     <string name="cancel">Cancelar</string>
@@ -163,7 +163,7 @@
     <string name="none">Nenhum</string>
     <string name="handheld_procon">Portátil + Pro Controller</string>
     <string name="procon">Pro Controller</string>
-    <string name="ljoycon">JoyCon esquerdo</string>
+    <string name="ljoycon">JoyCon Esquerdo</string>
     <string name="rjoycon">JoyCon direito</string>
     <string name="general">Geral</string>
     <string name="partner_joycon">Joy-Con Parceiro</string>
