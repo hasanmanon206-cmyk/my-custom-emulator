@@ -151,7 +151,7 @@
     <string name="osc_feedback">Habilitar Feedback Tátil</string>
     <string name="osc_feedback_description">Exclui os joysticks e controles físicos</string>
     <string name="osc_edit">Editar esquema de controles na tela</string>
-    <string name="setup_guide">Guia de configuração</string>
+    <string name="setup_guide">Guia de Configuração</string>
     <string name="setup_guide_description">Mapeia em sequência todos os analógicos e botões</string>
     <string name="joystick">Joystick</string>
     <string name="confirm">Confirmar</string>
