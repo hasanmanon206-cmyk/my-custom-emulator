@@ -75,7 +75,7 @@
     <string name="perf_stats">Exibir Estatísticas de Desempenho</string>
     <string name="perf_stats_desc_off">Estastísticas de Desempenho não serão exibidas</string>
     <string name="perf_stats_desc_on">Estatísticas de Desempenho sersão exibidas no canto superior esquerdo</string>
-    <string name="max_refresh_rate">Usar Máxima Taxa de Atualização da Tela</string>
+    <string name="max_refresh_rate">Use a Taxa Máxima de Atualização da Tela</string>
     <string name="max_refresh_rate_enabled">Define a taxa de atualização da tela para a mais alta possível (vai quebrar a maioria dos jogos)</string>
     <string name="max_refresh_rate_disabled">Define a taxa de atualização da tela para 60Hz</string>
     <string name="screen_orientation">Orientação da Tela</string>
