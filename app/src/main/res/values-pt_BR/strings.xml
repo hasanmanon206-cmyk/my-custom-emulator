@@ -52,7 +52,7 @@
     <string name="select_action_desc_off">Informação do jogo será mostrada somente em um clique longo sobre um jogo</string>
     <!-- Settings - Game -->
     <string name="game">Jogo</string>
-    <string name="use_custom_settings">Ativar Configurações Personalizadas</string>
+    <string name="use_custom_settings">Habilitar Configurações Personalizadas</string>
     <string name="use_custom_settings_desc_on">Configurações personalizadas estão habilitadas para este jogo</string>
     <string name="use_custom_settings_desc_off">Configurações personalizadas estão desabilitadas para esse jogo</string>
     <string name="reset_custom_settings">Redefinir Configurações Personalizadas</string>
