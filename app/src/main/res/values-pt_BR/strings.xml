@@ -183,7 +183,7 @@
     <string name="stick_button">Botão do Analógico</string>
     <string name="next">Próximo</string>
     <string name="x_plus">Eixo Analógico X+ (Direito)</string>
-    <string name="y_plus">Eixo Analógico Y+ (Cima)</string>
+    <string name="y_plus">Eixo Analógico Y+ (Superior)</string>
     <string name="x_minus">Eixo Analógico X- (Esquerdo)</string>
     <string name="y_minus">Eixo Analógico Y- (Baixo)</string>
     <string name="a_button">A</string>
