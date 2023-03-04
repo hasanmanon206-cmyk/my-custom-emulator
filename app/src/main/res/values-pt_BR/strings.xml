@@ -65,7 +65,7 @@
     <string name="system">Sistema</string>
     <string name="use_docked">Utilizar Modo Docked</string>
     <string name="handheld_enabled">O sistema será emulado no modo fora da dock</string>
-    <string name="docked_enabled">O sistema será emulado no modo dock</string>
+    <string name="docked_enabled">O sistema será emulado no modo docked</string>
     <string name="username">Nome de usuário</string>
     <string name="profile_picture">Imagem de Perfil</string>
     <string name="system_language">Idioma do Sistema</string>
