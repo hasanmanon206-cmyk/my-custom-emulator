@@ -239,7 +239,7 @@
     <string name="amat_description">Android Material Components proporciona uma interface de usuário do Material Desing consistente</string>
     <string name="ktstd_description">Kotlin Standar Library proporciona funções de conveniência em Kotlin</string>
     <string name="dagger_description">Dagger proporciona uma estrutura para injenção de dependência em tempo de compilação</string>
-    <string name="mtico_description">Material Design Icons proporciona uma iconografia consistente em todo o aplicativo</string>
+    <string name="mtico_description">Material Design Icons fornece uma iconografia consistente em todo o aplicativo</string>
     <string name="noto_sans_description">Nato Sans é utilizado como nossa substituição de fonte compartilhada FOSS para Latin, Japonês and Chinês (Tradicional)</string>
     <string name="roboto_description">Roboto é utilizado como nossa substituição de fonte compartilhada para Coreano e o conjunto de caracteres estendidos da Nintendo</string>
     <!-- Software Keyboard -->
