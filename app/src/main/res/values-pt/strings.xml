@@ -164,7 +164,7 @@
     <string name="handheld_procon">Portátil + Pro Controller</string>
     <string name="procon">Pro Controller</string>
     <string name="ljoycon">JoyCon Esquerdo</string>
-    <string name="rjoycon">JoyCon direito</string>
+    <string name="rjoycon">JoyCon Direito</string>
     <string name="general">Geral</string>
     <string name="partner_joycon">Joy-Con Parceiro</string>
     <string name="rumble_device">Dispositivo de Vibração</string>
