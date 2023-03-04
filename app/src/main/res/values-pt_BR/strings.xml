@@ -21,7 +21,7 @@
     <string name="searching_roms">Buscando por ROMs</string>
     <string name="invalid_file">Arquivo inválido </string>
     <string name="missing_title_key">Arquivo title.keys faltando</string>
-    <string name="incomplete_prod_keys">Chaves de Produção incompletas</string>
+    <string name="incomplete_prod_keys">Arquivo prod.keys incompleto</string>
     <!-- Settings - Content -->
     <string name="content">Conteúdo</string>
     <string name="open_data_directory">Ver Diretório Interno</string>
