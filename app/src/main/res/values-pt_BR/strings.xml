@@ -15,12 +15,12 @@
     <string name="all">Todos</string>
     <string name="metadata_missing">Metadados Ausentes</string>
     <string name="icon">Ícone</string>
-    <string name="no_rom">Não foi possível encontrar nenhuma ROM</string>
+    <string name="no_rom">Não foi possível encontrar nenhum arquivo de ROM</string>
     <string name="pin">Fixar</string>
     <string name="play">Jogar</string>
     <string name="searching_roms">Buscando por ROMs</string>
     <string name="invalid_file">Arquivo inválido </string>
-    <string name="missing_title_key">Chaves de Título faltando</string>
+    <string name="missing_title_key">Arquivo title.keys faltando</string>
     <string name="incomplete_prod_keys">Chaves de Produção incompletas</string>
     <!-- Settings - Content -->
     <string name="content">Conteúdo</string>
