@@ -145,7 +145,7 @@
     <!-- Input -->
     <string name="input">Entrada</string>
     <string name="osc">Controles na Tela</string>
-    <string name="osc_enable">Habilitar controles na tela</string>
+    <string name="osc_enable">Habilitar Controles na Tela</string>
     <string name="osc_not_shown">Os controles na tela não serão exibidos</string>
     <string name="osc_shown">Os controles na tela serão exibidos</string>
     <string name="osc_feedback">Habilitar Feedback Tátil</string>
