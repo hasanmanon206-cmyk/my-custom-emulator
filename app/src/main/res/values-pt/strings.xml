@@ -222,7 +222,7 @@
     <string name="sirit_description">O compilador de shader do Skyline internamente utiliza Sirit para emitir SPIR-V de maneira eficiente</string>
     <string name="vkhpp_description">Vulkan-Hpp provem uma API C++ para Vulkan</string>
     <string name="vkma_description">O Alocador de Memória Vulkan fornece um alocador de memória de GPU de alta qualidade com suporte para UMA</string>
-    <string name="khvkval_description">A Camada de Validação Vulkan da Khronos proporciona uma checagem de erros paras as chamadas da API Vulkan nas builds de depuração</string>
+    <string name="khvkval_description">A Camada de Validação Vulkan da Khronos fornece uma checagem de erros paras as chamadas da API Vulkan nas builds de depuração</string>
     <string name="oboe_description">Oboe é utilizado para saída de áudio de alto desempenho</string>
     <string name="perfetto_description">Perfetto é utilizado para profilar e depurar com rastreamento detalhado</string>
     <string name="fmtlib_description">{fmt} proporciona uma API de formatação de strings C++ moderna</string>
