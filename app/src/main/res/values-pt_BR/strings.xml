@@ -144,7 +144,7 @@
     <string name="gpu_driver_install_already_installed">O pacote de driver fornecido já está instalado</string>
     <!-- Input -->
     <string name="input">Entrada</string>
-    <string name="osc">Controles na tela</string>
+    <string name="osc">Controles na Tela</string>
     <string name="osc_enable">Habilitar controles na tela</string>
     <string name="osc_not_shown">Os controles na tela não serão exibidos</string>
     <string name="osc_shown">Os controles na tela serão exibidos</string>
