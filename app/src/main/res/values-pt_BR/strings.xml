@@ -97,7 +97,7 @@
     <string name="triple_buffering_enabled">Utilize pelo menos três buffers em cadeia de troca (FPS mais altos, porém há mais atraso de entrada)</string>
     <string name="triple_buffering_disabled">Utilize pelo menos dois buffers em cadeia de troca (FPS mais baixos, mas há menos atraso de entrada)</string>
     <string name="disable_frame_throttling">Desabilitar o Limitador de Quadros</string>
-    <string name="disable_frame_throttling_enabled">O jogo pode rodar o mais rápido possível (somente para benchmarking) <b>Nota:</b>Um método alternativo é utilizado para medir o FPS com isso ativado, os valores não devem ser comparados aos valores de FPS limitados</string>
+    <string name="disable_frame_throttling_enabled">O jogo pode rodar o mais rápido possível (somente para benchmarking) <b>Nota:</b>Um método alternativo é utilizado para medir o FPS com isso habilitado, os valores não devem ser comparados aos valores de FPS limitados</string>
     <string name="disable_frame_throttling_disabled">Permitir que o jogo rode de acordo com a taxa de atualização da tela do seu dispositivo</string>
     <string name="executor_slot_count_scale">Escala de Contagem de Slots do Executor</string>
     <string name="executor_slot_count_scale_desc">Escala controlando o número máximo de execuções simultâneas da GPU (mais alto às vezes pode ter um desempenho melhor, mas usará mais RAM)</string>
