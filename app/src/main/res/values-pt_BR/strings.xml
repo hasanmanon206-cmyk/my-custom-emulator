@@ -20,8 +20,8 @@
     <string name="play">Jogar</string>
     <string name="searching_roms">Buscando por ROMs</string>
     <string name="invalid_file">Arquivo inválido </string>
-    <string name="missing_title_key">Chaves de Título faltando</string>
-    <string name="incomplete_prod_keys">Chaves de Produção incompletas</string>
+    <string name="missing_title_key">Arquivo title.keys faltando</string>
+    <string name="incomplete_prod_keys">Arquivo prod.keys incompleto</string>
     <!-- Settings - Content -->
     <string name="content">Conteúdo</string>
     <string name="open_data_directory">Ver Diretório Interno</string>
@@ -30,8 +30,8 @@
     <string name="search_location">Local de Busca</string>
     <!-- Settings - Keys -->
     <string name="keys">Chaves de Decriptação</string>
-    <string name="prod_keys">Chaves de Produção</string>
-    <string name="title_keys">Chaves de Título </string>
+    <string name="prod_keys">Arquivo prod.keys</string>
+    <string name="title_keys">Arquivo title.keys</string>
     <string name="import_keys_success">Chaves de Decriptação importadas com sucesso</string>
     <string name="import_keys_invalid_input_path">O caminho para as chaves fornecidas é inválido</string>
     <string name="import_keys_invalid_keys">As chaves que você tentou importar são inválidas</string>
@@ -40,7 +40,7 @@
     <!-- Settings - Appearance -->
     <string name="appearance">Aparência</string>
     <string name="theme">Tema</string>
-    <string name="app_language">Idioma do aplicativo</string>
+    <string name="app_language">Idioma do Aplicativo</string>
     <string name="app_language_default">Usar Padrão do Sistema</string>
     <string name="layout_type">Modo de Exibição dos Jogos</string>
     <string name="sort_apps_by">Ordem de Classificação dos Jogos</string>
