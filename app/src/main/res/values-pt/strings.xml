@@ -225,8 +225,8 @@
     <string name="khvkval_description">A Camada de Validação Vulkan da Khronos fornece uma checagem de erros paras as chamadas da API Vulkan nas builds de depuração</string>
     <string name="oboe_description">Oboe é utilizado para saída de áudio de alto desempenho</string>
     <string name="perfetto_description">Perfetto é utilizado para profilar e depurar com rastreamento detalhado</string>
-    <string name="fmtlib_description">{fmt} proporciona uma API de formatação de strings C++ moderna</string>
-    <string name="boost_description">Boost proporciona uma implementação de alta qualidade de contêineres e outras funções de conveniência em C++</string>
+    <string name="fmtlib_description">{fmt} fornece uma API de formatação de strings C++ moderna</string>
+    <string name="boost_description">Boost fornece uma implementação de alta qualidade de contêineres e outras funções de conveniência em C++</string>
     <string name="rangev3_description">Range v3 é uma implementação de referência de intervalos ISO C++ 20, isso nos permite utilizar intervalos enquanto eles são desenvolvidos em libc++ do LLVM</string>
     <string name="frozen_description">Frozen proporciona mapas de hash imutáveis em tempo de compilação com função de hash perfeita para pesquisas mais rápidas</string>
     <string name="pugixml_description">pugixml é utilizado para analisar o XML de preferência para recuperar configurações do C++</string>
