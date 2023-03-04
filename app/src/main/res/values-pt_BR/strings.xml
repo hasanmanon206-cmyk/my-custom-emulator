@@ -185,7 +185,7 @@
     <string name="x_plus">Eixo Analógico X+ (Direito)</string>
     <string name="y_plus">Eixo Analógico Y+ (Superior)</string>
     <string name="x_minus">Eixo Analógico X- (Esquerdo)</string>
-    <string name="y_minus">Eixo Analógico Y- (Baixo)</string>
+    <string name="y_minus">Eixo Analógico Y- (Inferior)</string>
     <string name="a_button">A</string>
     <string name="b_button">B</string>
     <string name="x_button">X</string>
