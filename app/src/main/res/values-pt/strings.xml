@@ -233,7 +233,7 @@
     <string name="opus_description">O Codec de Áudio Opus fornece um decodificador Opus de alta qualidade utilizado para decodificar áudio codificado em Opus fornecido pelo convidado</string>
     <string name="mbedtls_description">Mbed TLS é utilizado para descriptografar NCAs criptografados em AES</string>
     <string name="lz4_description">LZ4 é utilizado para extrair seções de ELF compactadas em LZ4 a partir de um NSO</string>
-    <string name="tzcode_description">tzcode proporciona uma API C para acessar tzdb para dados de fuso horário</string>
+    <string name="tzcode_description">tzcode fornece uma API C para acessar tzdb para dados de fuso horário</string>
     <string name="jssim_description">A similaridade de strings em Java potencializa nossa funcionalidade de pesquisas</string>
     <string name="andx_description">AndroidX proporciona uma experiência de usuário consistente em todas as versões do Android</string>
     <string name="amat_description">Android Material Components proporciona uma interface de usuário do Material Desing consistente</string>
