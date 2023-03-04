@@ -156,7 +156,7 @@
     <string name="joystick">Joystick</string>
     <string name="confirm">Confirmar</string>
     <string name="cancel">Cancelar</string>
-    <string name="osc_recenter_sticks">Recentralizar stick analógico ao toque</string>
+    <string name="osc_recenter_sticks">Recentralizar analógico ao toque</string>
     <string name="controller">Controle</string>
     <string name="config_controller">Configurar Controle</string>
     <string name="controller_type">Tipo de Controle</string>
