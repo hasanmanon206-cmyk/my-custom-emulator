@@ -63,7 +63,7 @@
     <string name="copy_global_settings_warning">Tem certeza que deseja copiar as configurações globais para este jogo? <b>As configurações atuais serão perdidas </b></string>
     <!-- Settings - System -->
     <string name="system">Sistema</string>
-    <string name="use_docked">Utilizar Modo Dock</string>
+    <string name="use_docked">Utilizar Modo Docked</string>
     <string name="handheld_enabled">O sistema será emulado no modo fora da dock</string>
     <string name="docked_enabled">O sistema será emulado no modo dock</string>
     <string name="username">Nome de usuário</string>
