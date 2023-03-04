@@ -174,7 +174,7 @@
     <string name="confirm_button_again">Confirme a escolha pressionando um botão novamente</string>
     <string name="builtin">Embutido</string>
     <string name="builtin_vibrator">Vibrador Embutido</string>
-    <string name="reset">Resetar</string>
+    <string name="reset">Restaurar</string>
     <string name="buttons">Botões</string>
     <string name="use_button_axis">Use qualquer botão ou eixo em um controle</string>
     <string name="release_confirm">Solte para confirmar a seleção</string>
