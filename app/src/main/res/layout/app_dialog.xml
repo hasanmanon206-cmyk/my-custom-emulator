@@ -138,6 +138,16 @@
                 app:iconGravity="textStart"
                 app:iconPadding="0dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/game_delete"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/pin"
+                app:icon="@drawable/ic_delete"
+                app:iconGravity="textStart" />
+
         </com.google.android.flexbox.FlexboxLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

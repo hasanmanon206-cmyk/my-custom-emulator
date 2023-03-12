@@ -105,6 +105,11 @@ class AppDialog : BottomSheetDialogFragment() {
             shortcutManager.requestPinShortcut(info.build(), null)
         }
 
+        binding.gameDelete.setOnClickListener {
+            dialog?.onBackPressed()
+            (activity as MainActivity).requestAppItemDelete(item)
+        }
+
         binding.gameTitleId.setOnLongClickListener {
             val clipboard = requireActivity().getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
             clipboard.setPrimaryClip(android.content.ClipData.newPlainText("Title ID", item.titleId))

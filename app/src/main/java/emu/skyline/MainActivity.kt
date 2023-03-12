@@ -26,6 +26,7 @@ import androidx.documentfile.provider.DocumentFile
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import emu.skyline.adapter.*
@@ -87,6 +88,7 @@ class MainActivity : AppCompatActivity() {
     private val documentPicker = registerForActivityResult(ActivityResultContracts.OpenDocumentTree()) {
         it?.let { uri ->
             contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
             appSettings.searchLocation = uri.toString()
 
             loadRoms(false)
@@ -298,6 +300,32 @@ class MainActivity : AppCompatActivity() {
         if (binding.swipeRefreshLayout.isRefreshing) return
 
         AppDialog.newInstance(appItem).show(supportFragmentManager, "game")
+    }
+
+    fun requestAppItemDelete(appItem : AppItem) {
+        var prompt = Snackbar.make(binding.root, getString(R.string.delete_failed, appItem.title), Snackbar.LENGTH_SHORT)
+        DocumentFile.fromTreeUri(this, appItem.uri)?.let { file ->
+            if (file.canWrite()) {
+                val builder = MaterialAlertDialogBuilder(this)
+                builder.setMessage(getString(R.string.delete_confirm, appItem.title))
+                builder.setPositiveButton(getString(android.R.string.cancel)) { _, _ -> }
+                builder.setNegativeButton(getString(R.string.delete)) { _, _ ->
+                    if (file.delete()) {
+                        loadRoms(false)
+                    } else {
+                        prompt.show()
+                    }
+                }
+                builder.show()
+            } else {
+                prompt = Snackbar.make(binding.root, getString(R.string.delete_permission), Snackbar.LENGTH_LONG)
+                prompt.setAction(R.string.grant) {
+                    if (prompt.isShown) prompt.dismiss()
+                    documentPicker.launch(null)
+                }
+                prompt.show()
+            }
+        } ?: prompt.show()
     }
 
     private fun loadRoms(loadFromFile : Boolean) {

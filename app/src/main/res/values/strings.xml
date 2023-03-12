@@ -132,6 +132,12 @@
     <string name="validation_layer">Enable Validation Layer</string>
     <string name="validation_layer_enabled">The Vulkan validation layer is enabled, major slowdowns are to be expected</string>
     <string name="validation_layer_disabled">The Vulkan validation layer is disabled</string>
+    <!-- App Dialog - Delete -->
+    <string name="delete">Delete</string>
+    <string name="delete_confirm">Are you sure you want to delete %1$s</string>
+    <string name="delete_permission">Delete requires write permission</string>
+    <string name="delete_failed">Failed to delete %1$s</string>
+    <string name="grant">Grant</string>
     <!-- Gpu Driver Activity -->
     <string name="gpu_driver">GPU Driver</string>
     <string name="add_gpu_driver">Add a GPU driver</string>
