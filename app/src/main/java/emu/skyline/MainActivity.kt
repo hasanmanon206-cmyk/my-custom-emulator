@@ -6,6 +6,7 @@
 package emu.skyline
 
 import android.content.Intent
+import android.content.pm.ShortcutManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -302,7 +303,7 @@ class MainActivity : AppCompatActivity() {
         AppDialog.newInstance(appItem).show(supportFragmentManager, "game")
     }
 
-    fun requestAppItemDelete(appItem : AppItem) {
+    fun requestDeleteAppItem(appItem : AppItem) {
         var prompt = Snackbar.make(binding.root, getString(R.string.delete_failed, appItem.title), Snackbar.LENGTH_SHORT)
         DocumentFile.fromTreeUri(this, appItem.uri)?.let { file ->
             if (file.canWrite()) {
@@ -311,6 +312,14 @@ class MainActivity : AppCompatActivity() {
                 builder.setPositiveButton(getString(android.R.string.cancel)) { _, _ -> }
                 builder.setNegativeButton(getString(R.string.delete)) { _, _ ->
                     if (file.delete()) {
+                        val shortcutManager = getSystemService(ShortcutManager::class.java)
+                        val shortcutIds = arrayListOf<String>()
+                        shortcutManager.pinnedShortcuts.forEach {
+                            if (it.intent?.data?.path == appItem.uri.path)
+                                shortcutIds.add(it.id)
+                        }
+                        if (shortcutIds.isNotEmpty())
+                            shortcutManager.disableShortcuts(shortcutIds.toMutableList())
                         loadRoms(false)
                     } else {
                         prompt.show()

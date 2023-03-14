@@ -107,7 +107,7 @@ class AppDialog : BottomSheetDialogFragment() {
 
         binding.gameDelete.setOnClickListener {
             dialog?.onBackPressed()
-            (activity as MainActivity).requestAppItemDelete(item)
+            (activity as MainActivity).requestDeleteAppItem(item)
         }
 
         binding.gameTitleId.setOnLongClickListener {
