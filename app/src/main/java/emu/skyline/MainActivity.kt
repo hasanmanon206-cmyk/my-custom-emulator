@@ -305,6 +305,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun populateAdapter() {
         val items = getDataItems()
+        if (appSettings.filterValid) items.removeIf { item -> item is AppItem && item.version.isNullOrEmpty() }
         adapter.setItems(items.map {
             when (it) {
                 is HeaderItem -> HeaderViewItem(it.title)

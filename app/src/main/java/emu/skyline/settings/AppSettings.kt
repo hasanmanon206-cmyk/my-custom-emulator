@@ -25,6 +25,7 @@ class AppSettings @Inject constructor(@ApplicationContext private val context : 
     var layoutType by sharedPreferences(context, 1)
     var sortAppsBy by sharedPreferences(context, 0)
     var groupByFormat by sharedPreferences(context, true)
+    var filterValid by sharedPreferences(context, false)
     var selectAction by sharedPreferences(context, false)
 
     // Input
