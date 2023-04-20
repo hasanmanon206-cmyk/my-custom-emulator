@@ -78,8 +78,8 @@ class MainViewModel @Inject constructor(@ApplicationContext context : Context, p
      * This checks if the roms have changed since the last time they were loaded and if so it reloads them
      */
     fun checkRomHash(searchLocation : Uri, systemLanguage : Int) {
-        if(state !is MainState.Loaded) return
         CoroutineScope(Dispatchers.IO).launch {
+            if (state !is MainState.Loaded) return@launch
             val currentHash = (state as MainState.Loaded).items.hashCode()
             val romElements = romProvider.loadRoms(searchLocation, systemLanguage)
             val newHash = romElements.hashCode()
