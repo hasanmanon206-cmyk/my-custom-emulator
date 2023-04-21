@@ -51,6 +51,12 @@
             app:refreshRequired="true"
             app:title="@string/sort_apps_by"
             app:useSimpleSummaryProvider="true" />
+        <emu.skyline.preference.RefreshSwitchPreferenceCompat
+            android:defaultValue="false"
+            android:summaryOff="@string/filter_game_folders_desc_off"
+            android:summaryOn="@string/filter_game_folders_desc_on"
+            app:key="filter_game_folders"
+            app:title="@string/filter_game_folders" />
         <SwitchPreferenceCompat
             android:defaultValue="false"
             android:summaryOff="@string/select_action_desc_off"

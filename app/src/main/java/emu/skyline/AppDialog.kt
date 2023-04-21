@@ -25,6 +25,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import emu.skyline.data.AppItem
 import emu.skyline.data.AppItemTag
+import emu.skyline.data.GameFolders
 import emu.skyline.databinding.AppDialogBinding
 import emu.skyline.loader.LoaderResult
 import emu.skyline.provider.DocumentsProvider
@@ -70,6 +71,14 @@ class AppDialog : BottomSheetDialogFragment() {
     private var lastZipCreated : File? = null
     private val documentPicker = registerForActivityResult(ActivityResultContracts.OpenDocument()) {
         it?.let { uri -> importSave(uri) }
+    }
+    private val directoryPicker = registerForActivityResult(ActivityResultContracts.OpenDocumentTree()) {
+        it?.let { uri ->
+            activity?.contentResolver?.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            activity?.contentResolver?.takePersistableUriPermission(uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            GameFolders.putDirectory(item.titleId ?: item.key(), uri.toString())
+        }
+        binding.gameFolderPath.text = GameFolders.getDirectoryPath(it)
     }
 
     /**
@@ -149,6 +158,18 @@ class AppDialog : BottomSheetDialogFragment() {
         binding.exportSave.isEnabled = saveExists
         binding.exportSave.setOnClickListener {
             exportSave(saveFolderPath)
+        }
+
+        binding.gameFolderPath.text = GameFolders.getDirectoryPath(item.titleId ?: item.key())
+
+        binding.setFolder.setOnClickListener {
+            directoryPicker.launch(null)
+        }
+
+        binding.clearFolder.setOnClickListener {
+            GameFolders.removeDirectory(item.titleId ?: item.key())
+            (activity as? MainActivity)?.loadRoms(false)
+            binding.gameFolderPath.text = ""
         }
 
         binding.gameTitleId.setOnLongClickListener {

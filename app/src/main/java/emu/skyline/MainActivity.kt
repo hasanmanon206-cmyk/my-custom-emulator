@@ -29,6 +29,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import emu.skyline.adapter.*
 import emu.skyline.data.AppItem
 import emu.skyline.data.AppItemTag
+import emu.skyline.data.GameFolders
 import emu.skyline.databinding.MainActivityBinding
 import emu.skyline.loader.AppEntry
 import emu.skyline.loader.LoaderResult
@@ -215,7 +216,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun sortGameList(gameList : List<AppEntry>) : List<AppEntry> {
         val sortedApps : MutableList<AppEntry> = mutableListOf()
-        gameList.forEach { entry -> sortedApps.add(entry) }
+        gameList.forEach { entry ->
+            if (!appSettings.filterGameFolders || !GameFolders.hasDirectory(entry.uri))
+                sortedApps.add(entry)
+        }
         when (appSettings.sortAppsBy) {
             SortingOrder.AlphabeticalAsc.ordinal -> sortedApps.sortBy { it.name }
             SortingOrder.AlphabeticalDesc.ordinal -> sortedApps.sortByDescending { it.name }
@@ -258,7 +262,7 @@ class MainActivity : AppCompatActivity() {
         AppDialog.newInstance(appItem).show(supportFragmentManager, "game")
     }
 
-    private fun loadRoms(loadFromFile : Boolean) {
+    fun loadRoms(loadFromFile : Boolean) {
         if (!loadFromFile) {
             binding.romPlaceholder.isVisible = true
             binding.romPlaceholder.text = getString(R.string.searching_roms)

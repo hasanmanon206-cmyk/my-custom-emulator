@@ -24,6 +24,9 @@
     <string name="delete_save">Delete save</string>
     <string name="import_save">Import</string>
     <string name="export_save">Export</string>
+    <string name="game_folder">DLC / Update Folder</string>
+    <string name="set_game_folder">Set Folder</string>
+    <string name="clear_game_folder">Clear Folder</string>
     <string name="searching_roms">Searching for ROMs</string>
     <string name="invalid_file">Invalid file</string>
     <string name="missing_title_key">Missing title key</string>
@@ -56,6 +59,9 @@
     <string name="app_language_default">Use System Default</string>
     <string name="layout_type">Game Display Layout</string>
     <string name="sort_apps_by">Games Sorting Order</string>
+    <string name="filter_game_folders">Hide DLC / Update Folders</string>
+    <string name="filter_game_folders_desc_off">Show files in folders assigned to individual games</string>
+    <string name="filter_game_folders_desc_on">Hide files in folders assigned to individual games</string>
     <string name="select_action">Always Show Game Information</string>
     <string name="select_action_desc_on">Game information will be shown on clicking a game</string>
     <string name="select_action_desc_off">Game information will only be shown on long-clicking a game</string>

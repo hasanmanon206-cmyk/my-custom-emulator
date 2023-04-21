@@ -24,6 +24,7 @@ class AppSettings @Inject constructor(@ApplicationContext private val context : 
     var useMaterialYou by sharedPreferences(context, false)
     var layoutType by sharedPreferences(context, 1)
     var sortAppsBy by sharedPreferences(context, 0)
+    var filterGameFolders by sharedPreferences(context, false)
     var selectAction by sharedPreferences(context, false)
 
     // Input
