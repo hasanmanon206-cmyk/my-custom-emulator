@@ -233,11 +233,11 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/clear_folder"
                 style="@style/Widget.Material3.Button.TonalButton.Icon"
-                android:layout_width="48dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:contentDescription="@string/clear_game_folder"
-                android:tooltipText="@string/clear_game_folder"
+                android:text="@string/clear_game_folder"
                 app:icon="@drawable/ic_delete" />
 
         </com.google.android.flexbox.FlexboxLayout>

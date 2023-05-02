@@ -26,7 +26,7 @@
     <string name="export_save">Export</string>
     <string name="game_folder">DLC / Update Folder</string>
     <string name="set_game_folder">Set Folder</string>
-    <string name="clear_game_folder">Clear Folder</string>
+    <string name="clear_game_folder">Clear</string>
     <string name="searching_roms">Searching for ROMs</string>
     <string name="invalid_file">Invalid file</string>
     <string name="missing_title_key">Missing title key</string>
