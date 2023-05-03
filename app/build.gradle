@@ -18,6 +18,16 @@ android {
     compileSdk 33
 
     var isBuildSigned = (System.getenv("CI") == "true") && (System.getenv("IS_SKYLINE_SIGNED") == "true")
+    
+    splits {
+    abi {
+        enable true
+        reset()
+        include 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'mips', 'mips64', 'arm64-v8a'
+        universalApk true
+        }
+    }
+
 
     defaultConfig {
         applicationId "skyline.emu"
