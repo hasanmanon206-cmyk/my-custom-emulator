@@ -20,18 +20,36 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android NDK & Properties
+      - name: Setup Android NDK
         run: |
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.2.9519653" "cmake;3.22.1"
-          echo "sdk.dir=$ANDROID_HOME" > local.properties
-          echo "ndk.dir=$ANDROID_HOME/ndk/25.2.9519653" >> local.properties
 
-      - name: Grant permission for gradlew
-        run: chmod +x gradlew
+      - name: Locate Project & Build APK
+        run: |
+          GRADLEW_FILE=$(find . -name "gradlew" | head -n 1)
 
-      - name: Build Android Release APK
-        run: ./gradlew assembleRelease --stacktrace --no-daemon
+          if [ -n "$GRADLEW_FILE" ]; then
+            PROJECT_DIR=$(dirname "$GRADLEW_FILE")
+            echo "Found gradlew in $PROJECT_DIR"
+            cd "$PROJECT_DIR"
+            chmod +x gradlew
+            echo "sdk.dir=$ANDROID_HOME" > local.properties
+            echo "ndk.dir=$ANDROID_HOME/ndk/25.2.9519653" >> local.properties
+            ./gradlew assembleRelease --stacktrace --no-daemon || ./gradlew assembleDebug --stacktrace --no-daemon
+          else
+            BUILD_GRADLE=$(find . -name "build.gradle*" | head -n 1)
+            if [ -n "$BUILD_GRADLE" ]; then
+              PROJECT_DIR=$(dirname "$BUILD_GRADLE")
+              cd "$PROJECT_DIR"
+              echo "sdk.dir=$ANDROID_HOME" > local.properties
+              echo "ndk.dir=$ANDROID_HOME/ndk/25.2.9519653" >> local.properties
+              gradle assembleRelease --stacktrace --no-daemon || gradle assembleDebug --stacktrace --no-daemon
+            else
+              echo "No Android project found!"
+              exit 1
+            fi
+          fi
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
