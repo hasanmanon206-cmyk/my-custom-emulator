@@ -25,34 +25,44 @@ jobs:
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.2.9519653" "cmake;3.22.1"
 
-      - name: Locate Project & Build APK
+      - name: Inspect Directory Structure
+        run: |
+          echo "=== Root Files ==="
+          ls -la
+          echo "=== Searching for build files ==="
+          find . -maxdepth 3 -not -path '*/.*'
+
+      - name: Build Project
         run: |
           GRADLEW_FILE=$(find . -name "gradlew" | head -n 1)
+          BUILD_GRADLE=$(find . -name "build.gradle*" | head -n 1)
 
           if [ -n "$GRADLEW_FILE" ]; then
             PROJECT_DIR=$(dirname "$GRADLEW_FILE")
-            echo "Found gradlew in $PROJECT_DIR"
             cd "$PROJECT_DIR"
             chmod +x gradlew
             echo "sdk.dir=$ANDROID_HOME" > local.properties
             echo "ndk.dir=$ANDROID_HOME/ndk/25.2.9519653" >> local.properties
-            ./gradlew assembleRelease --stacktrace --no-daemon || ./gradlew assembleDebug --stacktrace --no-daemon
+            ./gradlew assembleRelease --stacktrace --no-daemon
+          elif [ -n "$BUILD_GRADLE" ]; then
+            PROJECT_DIR=$(dirname "$BUILD_GRADLE")
+            cd "$PROJECT_DIR"
+            echo "sdk.dir=$ANDROID_HOME" > local.properties
+            echo "ndk.dir=$ANDROID_HOME/ndk/25.2.9519653" >> local.properties
+            gradle assembleRelease --stacktrace --no-daemon
+          elif [ -f "CMakeLists.txt" ]; then
+            mkdir -p build && cd build
+            cmake .. -DCMAKE_TOOLCHAIN_FILE=$ANDROID_HOME/ndk/25.2.9519653/build/cmake/android.toolchain.cmake -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-30 -DCMAKE_BUILD_TYPE=Release
+            make -j$(nproc)
           else
-            BUILD_GRADLE=$(find . -name "build.gradle*" | head -n 1)
-            if [ -n "$BUILD_GRADLE" ]; then
-              PROJECT_DIR=$(dirname "$BUILD_GRADLE")
-              cd "$PROJECT_DIR"
-              echo "sdk.dir=$ANDROID_HOME" > local.properties
-              echo "ndk.dir=$ANDROID_HOME/ndk/25.2.9519653" >> local.properties
-              gradle assembleRelease --stacktrace --no-daemon || gradle assembleDebug --stacktrace --no-daemon
-            else
-              echo "No Android project found!"
-              exit 1
-            fi
+            echo "Error: No recognizable build system found!"
+            exit 1
           fi
 
-      - name: Upload APK Artifact
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Custom-Emulator-APK
-          path: "**/build/outputs/apk/**/*.apk"
+          name: Custom-Emulator-Output
+          path: |
+            **/build/outputs/apk/**/*.apk
+            **/build/*.so
