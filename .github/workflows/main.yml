@@ -27,14 +27,29 @@ jobs:
           echo "NDK_HOME=$ANDROID_HOME/ndk/25.2.9519653" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/25.2.9519653" >> $GITHUB_ENV
 
-      - name: Grant permission for gradlew
-        run: chmod +x gradlew
+      - name: Find Gradle Project & Grant Permissions
+        run: |
+          GRADLEW_PATH=$(find . -name "gradlew" | head -n 1)
+          if [ -n "$GRADLEW_PATH" ]; then
+            chmod +x "$GRADLEW_PATH"
+            echo "PROJECT_DIR=$(dirname "$GRADLEW_PATH")" >> $GITHUB_ENV
+            echo "HAS_WRAPPER=true" >> $GITHUB_ENV
+          else
+            echo "PROJECT_DIR=." >> $GITHUB_ENV
+            echo "HAS_WRAPPER=false" >> $GITHUB_ENV
+          fi
 
       - name: Build Android Release APK
-        run: ./gradlew assembleRelease --no-daemon || ./gradlew assembleDebug --no-daemon
+        run: |
+          cd ${{ env.PROJECT_DIR }}
+          if [ "${{ env.HAS_WRAPPER }}" = "true" ]; then
+            ./gradlew assembleRelease --no-daemon || ./gradlew assembleDebug --no-daemon
+          else
+            gradle assembleRelease --no-daemon || gradle assembleDebug --no-daemon
+          fi
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Custom-Emulator-APK
-          path: app/build/outputs/apk/**/*.apk
+          path: "**/build/outputs/apk/**/*.apk"
